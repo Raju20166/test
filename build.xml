@@ -1,0 +1,58 @@
+<project basedir="." default="compile">
+
+	<!-- This file contains all of the environment specific configuration, change it for your setup -->
+    <property file="local.properties"/>
+	<dirname file="${ant.file}" property="StudentEnrollmentWithJDBC.home"/>
+
+	<path id="java.classpath">
+		<fileset dir="WebContent/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="build/WEB-INF/classes">
+			<include name="*.class" />
+		</fileset>
+		<pathelement location="build/WEB-INF/classes"/>
+	</path>
+
+	<target name="hack">
+		<echo message="file=$(ant.file) home=${ant.home} bodge=${StudentEnrollmentWithJDBC.home}"/>
+	</target>
+		
+
+	<!-- Compile all of the source code -->
+	<target name="compile">
+		<!-- Compile the java code -->
+		<javac target="1.7" destdir="build/WEB-INF/classes" srcdir="src" classpathref="java.classpath" />
+	</target>
+
+	<target name="build" depends="compile">
+		<copy toDir="build"><fileset dir="WebContent" includes="**/*"/></copy>
+
+		<delete file="build/StudentEnrollmentWithJDBC.war"/>
+		
+		<war destfile="build/StudentEnrollmentWithJDBC.war" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="build"/>
+		</war>
+	</target>
+
+	<target name="deploy" depends="build">
+		<delete dir="${deploy.dir}/StudentEnrollmentWithJDBC"/>
+		<copy file="build/StudentEnrollmentWithJDBC.war" tofile="${deploy.dir}/StudentEnrollmentWithJDBC.war"/>
+	</target>
+
+	<target name="deploy-jsps">
+		<copy toDir="${deploy.dir}/StudentEnrollmentWithJDBC">
+			<fileset dir="WebContent">
+				<include name="*.jsp" />
+				<include name="*.css" />
+				<include name="**/*.png" />
+			</fileset>
+		</copy>
+	</target>
+
+
+
+</project>
