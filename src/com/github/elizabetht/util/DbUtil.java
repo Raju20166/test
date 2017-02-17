@@ -19,11 +19,11 @@ public class DbUtil {
 				if (properties != null) {
 					properties.load(inputStream);
 
-					String dbDriver = properties.getProperty("dbDriver");
+					/*String dbDriver = properties.getProperty("dbDriver");
 					String connectionUrl = properties
 							.getProperty("connectionUrl");
 					String userName = properties.getProperty("userName");
-					String password = properties.getProperty("password");
+					String password = properties.getProperty("password");*/
 
 					Class.forName("com.mysql.jdbc.Driver").newInstance();
 					//dbConnection = DriverManager.getConnection("jdbc:mysql://172.25.25.16:3306/studentEnrollment", "pk", "pk");
