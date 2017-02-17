@@ -42,8 +42,7 @@ public class DbUtil {
 					String user = "anilpatil";
 					String password = "password";
 
-					Class dbDriver = Class.forName("com.mysql.jdbc.Driver");
-					con = DriverManager.getConnection(url, user, password);
+					dbConnection = DriverManager.getConnection(url, user, password);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
