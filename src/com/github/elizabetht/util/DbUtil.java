@@ -13,13 +13,13 @@ public class DbUtil {
 			return dbConnection;
 		} else {
 			try {
-				InputStream inputStream = DbUtil.class.getClassLoader()
+				/*InputStream inputStream = DbUtil.class.getClassLoader()
 						.getResourceAsStream("db.properties");
 				Properties properties = new Properties();
 				if (properties != null) {
 					properties.load(inputStream);
 
-					/*String dbDriver = properties.getProperty("dbDriver");
+					String dbDriver = properties.getProperty("dbDriver");
 					String connectionUrl = properties
 							.getProperty("connectionUrl");
 					String userName = properties.getProperty("userName");
@@ -43,7 +43,7 @@ public class DbUtil {
 					String password = "password";
 
 					dbConnection = DriverManager.getConnection(url, user, password);
-				}
+				//}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
