@@ -34,7 +34,7 @@ public class DbUtil {
 					System.setProperty("javax.net.ssl.trustStore","/home/ubuntu/truststore");
 					System.setProperty("javax.net.ssl.trustStorePassword","password");
 					
-					String url = "jdbc:mysql://172.25.25.29:3306/studentEnrollment"+"?"+
+					String url = "jdbc:mysql://172.25.25.84:3306/studentEnrollment"+"?"+
 									"verifyServerCertificate=true"+
 									"&useSSL=true"+
 									"&requireSSL=true";
